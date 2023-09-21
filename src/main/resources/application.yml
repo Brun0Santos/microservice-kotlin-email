@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8087
 
 spring:
   application:
@@ -7,8 +7,6 @@ spring:
 
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: email-service
-      username: admin
-      password: admin@admin
+      uri: mongodb://localhost:27017/email-service
+      username: root
+      password: root@root

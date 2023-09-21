@@ -1,15 +1,11 @@
 package com.email.microservice.service
 
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.stereotype.Service
 
-@RestController
-@RequestMapping("/api")
+@Service
 class EmailService {
 
-    @PostMapping
-    fun hello (): String {
+    fun hello(): String {
         return "Ola, bem vindo"
     }
 }
