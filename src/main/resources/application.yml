@@ -7,6 +7,26 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/email-service
       username: root
-      password: root@root
+      password: root-root
+      port: 27017
+      database: email-service
+      host: localhost
+      authentication-database: admin
+
+  mail:
+    host: 
+    port:
+    username:
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+app:
+  auth:
+    name: auth
+    url: http://localhost:8080

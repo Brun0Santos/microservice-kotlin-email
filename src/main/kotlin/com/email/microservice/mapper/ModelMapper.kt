@@ -9,7 +9,7 @@ class ModelMapper {
     fun convertToDto(emailModel: EmailModel): EmailDto {
         return EmailDto(
             emailFrom = emailModel.emailFrom, emailTo = emailModel.emailTo,
-            subject = emailModel.subject, text = emailModel.text
+            subject = emailModel.subject, text = emailModel.text, name = emailModel.name
         );
     }
 }
