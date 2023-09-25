@@ -4,6 +4,7 @@ import com.email.microservice.configs.AuthConsumerFeign
 import com.email.microservice.dtos.EmailDto
 import com.email.microservice.dtos.TokenDto
 import com.email.microservice.enums.StatusEmail
+import com.email.microservice.exceptions.InvalidJwtAuthException
 import com.email.microservice.model.EmailModel
 import com.email.microservice.repository.EmailRepository
 import org.springframework.http.HttpStatus
@@ -47,7 +48,7 @@ class EmailService(
         try {
             return authConsumerFeign.validateToken(token)
         } catch (ex: Exception) {
-            throw IllegalArgumentException("ERROR")
+            throw InvalidJwtAuthException("Token invalid")
         }
     }
 }

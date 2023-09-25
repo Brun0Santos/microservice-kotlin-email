@@ -5,6 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm
 import com.auth0.jwt.interfaces.DecodedJWT
 import com.auth0.jwt.interfaces.JWTVerifier
 import com.email.microservice.configs.AuthConsumerFeign
+import com.email.microservice.exceptions.InvalidJwtAuthException
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
@@ -39,7 +40,7 @@ class AuthenticationFilter(private val httpClient: AuthConsumerFeign, private va
             httpClient.validateToken(token)
             return true
         } catch (ex: Exception) {
-            throw IllegalArgumentException("ERROR NO HEADER")
+            throw InvalidJwtAuthException("Token invalid")
         }
     }
 
