@@ -14,5 +14,7 @@ data class EmailModel(
     var sendDataEmail: LocalDateTime,
     var statusEmail: StatusEmail,
 ) {
-    constructor() : this("", "", "", "", "", LocalDateTime.now(), StatusEmail.SEND)
+    constructor() : this(
+        "", "", "", "", "", LocalDateTime.now(), StatusEmail.SEND
+    )
 }

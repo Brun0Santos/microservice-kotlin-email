@@ -18,13 +18,12 @@ class EmailController(private val emailService: EmailService) {
     }
 
     @PostMapping("/send-email")
-    fun sendingEmail(@RequestBody @Valid emailDto: EmailDto): ResponseEntity<HttpStatus> {
+    fun sendingEmail(@RequestBody emailDto: EmailDto): ResponseEntity<HttpStatus> {
         return emailService.sendEmail(emailDto)
     }
 
     @PostMapping("/token/validate")
-    fun validateToken(@RequestBody @Valid tokenDto: TokenDto): ResponseEntity<TokenDto> {
-        val resultToken = emailService.validationToken(tokenDto)
-        return ResponseEntity.ok().body(resultToken)
+    fun validateToken(@RequestBody @Valid tokenDto: String): ResponseEntity<TokenDto> {
+        return ResponseEntity.ok().body(emailService.validationToken(tokenDto))
     }
 }

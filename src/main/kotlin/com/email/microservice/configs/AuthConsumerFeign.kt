@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RequestBody
 interface AuthConsumerFeign {
 
     @PostMapping("/api/token/validate")
-    fun validateToken(@RequestBody token: TokenDto): TokenDto
+    fun validateToken(@RequestBody token: String): TokenDto
 }
